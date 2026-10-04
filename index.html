@@ -1,11 +1,113 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#08101f"><title>Journey 3D Test</title><style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#08101f;color:#f7efe8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom));background:radial-gradient(circle at 20% 0%,rgba(216,147,104,.18),transparent 34rem),linear-gradient(#08101f,#0d1425)}.wrap{width:min(92vw,410px);text-align:center}.kicker{letter-spacing:.2em;color:#d9a277;font:700 11px/1.2 Georgia,serif;text-transform:uppercase}.title{font:500 31px/1.15 Georgia,serif;margin:8px 0 6px}.sub{color:#b9c1d0;font-size:13px;line-height:1.45;margin:0 0 16px}.stage{perspective:1100px}.card{position:relative;transform-style:preserve-3d;will-change:transform;transition:transform .08s linear;border-radius:22px;box-shadow:0 25px 55px rgba(0,0,0,.45);overflow:hidden;background:#10192b}.card img{width:100%;display:block;transform:translateZ(1px)}.sheen{position:absolute;inset:0;pointer-events:none;opacity:.75;mix-blend-mode:screen;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,246,224,.30),rgba(240,193,143,.13) 18%,rgba(255,255,255,0) 48%);transform:translateZ(2px)}.panel{margin-top:15px;padding:14px;border:1px solid rgba(240,193,143,.25);border-radius:17px;background:rgba(13,20,37,.86);backdrop-filter:blur(14px)}button{width:100%;min-height:48px;border:0;border-radius:14px;font:700 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#16191f;background:linear-gradient(#f1c89f,#da9369)}#status{font-size:12px;color:#aeb8c9;margin-top:9px;min-height:34px;line-height:1.4}.hint{font-size:11px;color:#778398;margin-top:9px}</style></head><body><main class="wrap"><div class="kicker">Journey prototype</div><h1 class="title">3D motion test</h1><p class="sub">Tap enable, then slowly tilt your phone left/right and forward/back.</p><div class="stage"><div class="card" id="card"><img alt="Providence tarot card" src="data:image/jpeg;base64,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"><div class="sheen"></div></div></div><div class="panel"><button id="go">Enable 3D motion</button><div id="status">Secure context: ${window.isSecureContext?'yes':'no'}</div><div class="hint">You can also drag across the card to preview the effect.</div></div></main><script>
-const card=document.getElementById('card'),status=document.getElementById('status'),btn=document.getElementById('go');let on=false,b0=null,g0=null,last=0,drag=false;
-const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));function tilt(x,y,gx=50,gy=50){card.style.transform=`rotateX(${x}deg) rotateY(${y}deg) scale(1.018)`;card.style.setProperty('--gx',gx+'%');card.style.setProperty('--gy',gy+'%')}
-function orient(e){if(!on||e.beta==null||e.gamma==null)return;last=Date.now();if(b0==null)b0=e.beta;if(g0==null)g0=e.gamma;const db=clamp(e.beta-b0,-24,24),dg=clamp(e.gamma-g0,-30,30),x=clamp(-db*.42,-9,9),y=clamp(dg*.42,-11,11);tilt(x,y,50+y/11*34,50+x/9*34);status.textContent=`Motion active • β ${e.beta.toFixed(1)}° • γ ${e.gamma.toFixed(1)}°`}
-function motion(e){if(!on||Date.now()-last<500)return;const a=e.accelerationIncludingGravity;if(!a||a.x==null||a.y==null)return;const y=clamp(a.x*1.3,-10,10),x=clamp(-a.y*.9,-8,8);tilt(x,y,50+y/10*32,50+x/8*32);status.textContent='Motion active • acceleration fallback'}
-async function enable(){try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){if(await DeviceOrientationEvent.requestPermission()!=='granted'){status.textContent='Motion permission denied';return}}if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){try{await DeviceMotionEvent.requestPermission()}catch(e){}}on=true;b0=g0=null;window.addEventListener('deviceorientationabsolute',orient,true);window.addEventListener('deviceorientation',orient,true);window.addEventListener('devicemotion',motion,true);btn.textContent='3D motion enabled';status.textContent='Waiting for sensor data…';setTimeout(()=>{if(on&&Date.now()-last>1800)status.textContent='No sensor data received • check browser Motion sensors permission'},2200)}catch(e){status.textContent='Motion unavailable: '+e.message}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08101f">
+<title>Journey 3D Motion Test</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#08101f;color:#f7efe8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px 18px calc(24px + env(safe-area-inset-bottom));background:radial-gradient(circle at 20% 0%,rgba(216,147,104,.18),transparent 34rem),linear-gradient(#08101f,#0d1425)}
+.wrap{width:min(92vw,410px);text-align:center}
+.kicker{letter-spacing:.2em;color:#d9a277;font:700 11px/1.2 Georgia,serif;text-transform:uppercase}
+h1{font:500 31px/1.15 Georgia,serif;margin:8px 0 6px}
+.sub{color:#b9c1d0;font-size:13px;line-height:1.45;margin:0 0 16px}
+.stage{perspective:1200px}
+.card{position:relative;aspect-ratio:896/1536;transform-style:preserve-3d;will-change:transform;transition:transform .07s linear;border-radius:22px;box-shadow:0 28px 60px rgba(0,0,0,.48);overflow:hidden;background:#0a1020;border:2px solid #e29b6c}
+.card:before{content:"";position:absolute;inset:8px;border:1px solid #e7aa7c;border-radius:16px;box-shadow:inset 0 0 0 3px rgba(226,155,108,.13);transform:translateZ(1px)}
+.sky{position:absolute;inset:10% 11% 17%;border-radius:14px;background:
+radial-gradient(circle at 72% 18%,rgba(255,238,180,.95) 0 2%,transparent 2.2%),
+linear-gradient(180deg,#4b79b8 0%,#86a7bc 38%,#d8b976 65%,#50653a 100%);overflow:hidden;transform:translateZ(2px)}
+.sky:before{content:"";position:absolute;left:-6%;right:-6%;bottom:20%;height:44%;background:
+radial-gradient(ellipse at 20% 100%,#243b25 0 32%,transparent 33%),
+radial-gradient(ellipse at 55% 100%,#38502a 0 38%,transparent 39%),
+radial-gradient(ellipse at 88% 100%,#293d25 0 36%,transparent 37%)}
+.sky:after{content:"";position:absolute;left:9%;right:9%;bottom:6%;height:24%;background:linear-gradient(6deg,#7d7141,#a99a59 55%,#6c6138);clip-path:polygon(0 72%,25% 50%,47% 60%,70% 33%,100% 45%,100% 100%,0 100%)}
+.stars{position:absolute;inset:18px 25px auto;color:#f0b07b;letter-spacing:1.1em;font-size:18px;white-space:nowrap;transform:translateZ(3px)}
+.number{position:absolute;top:19px;left:50%;transform:translateX(-50%) translateZ(4px);width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#f0d1b8;color:#15141a;border:3px double #df9668;font:italic 34px Georgia,serif}
+.ribbon{position:absolute;left:50%;bottom:20px;transform:translateX(-50%) translateZ(4px);min-width:62%;padding:9px 20px 10px;border-radius:50% 50% 42% 42%;background:#f0d1b8;color:#17151a;border:2px solid #db9265;font:italic 26px Georgia,serif}
+.corner{position:absolute;color:#efad79;font-size:27px;transform:translateZ(3px)}
+.c1{left:20px;top:26px}.c2{right:20px;top:26px}.c3{left:20px;bottom:27px}.c4{right:20px;bottom:27px}
+.sheen{position:absolute;inset:0;pointer-events:none;opacity:.78;mix-blend-mode:screen;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,249,226,.32),rgba(240,193,143,.13) 18%,rgba(255,255,255,0) 48%);transform:translateZ(5px)}
+.panel{margin-top:15px;padding:14px;border:1px solid rgba(240,193,143,.25);border-radius:17px;background:rgba(13,20,37,.86);backdrop-filter:blur(14px)}
+button{width:100%;min-height:48px;border:0;border-radius:14px;font:700 15px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#16191f;background:linear-gradient(#f1c89f,#da9369)}
+#status{font-size:12px;color:#aeb8c9;margin-top:9px;min-height:34px;line-height:1.4}
+.hint{font-size:11px;color:#778398;margin-top:9px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<div class="kicker">Journey prototype</div>
+<h1>3D motion test</h1>
+<p class="sub">Tap enable, then slowly tilt your phone left/right and forward/back.</p>
+<div class="stage">
+  <div class="card" id="card">
+    <div class="stars">✦ ☾ ✦</div>
+    <div class="number">1</div>
+    <div class="sky"></div>
+    <div class="corner c1">✦</div><div class="corner c2">✦</div><div class="corner c3">✦</div><div class="corner c4">✦</div>
+    <div class="ribbon">Providence</div>
+    <div class="sheen"></div>
+  </div>
+</div>
+<div class="panel">
+  <button id="go">Enable 3D motion</button>
+  <div id="status">Checking secure context…</div>
+  <div class="hint">If sensors are blocked, drag across the card to preview the effect.</div>
+</div>
+</main>
+<script>
+const card=document.getElementById('card'),status=document.getElementById('status'),btn=document.getElementById('go');
+let on=false,b0=null,g0=null,last=0,drag=false;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function tilt(x,y,gx=50,gy=50){
+  card.style.transform=`rotateX(${x}deg) rotateY(${y}deg) scale(1.018)`;
+  card.style.setProperty('--gx',gx+'%');
+  card.style.setProperty('--gy',gy+'%');
+}
+function orient(e){
+  if(!on||e.beta==null||e.gamma==null)return;
+  last=Date.now();
+  if(b0==null)b0=e.beta;if(g0==null)g0=e.gamma;
+  const db=clamp(e.beta-b0,-24,24),dg=clamp(e.gamma-g0,-30,30);
+  const x=clamp(-db*.46,-10,10),y=clamp(dg*.46,-12,12);
+  tilt(x,y,50+y/12*35,50+x/10*35);
+  status.textContent=`Motion active • β ${e.beta.toFixed(1)}° • γ ${e.gamma.toFixed(1)}°`;
+}
+function motion(e){
+  if(!on||Date.now()-last<500)return;
+  const a=e.accelerationIncludingGravity;
+  if(!a||a.x==null||a.y==null)return;
+  const y=clamp(a.x*1.35,-11,11),x=clamp(-a.y*.95,-9,9);
+  tilt(x,y,50+y/11*34,50+x/9*34);
+  status.textContent='Motion active • acceleration fallback';
+}
+async function enable(){
+  try{
+    if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){
+      if(await DeviceOrientationEvent.requestPermission()!=='granted'){status.textContent='Motion permission denied';return;}
+    }
+    if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){
+      try{await DeviceMotionEvent.requestPermission()}catch(e){}
+    }
+    on=true;b0=g0=null;last=0;
+    window.addEventListener('deviceorientationabsolute',orient,true);
+    window.addEventListener('deviceorientation',orient,true);
+    window.addEventListener('devicemotion',motion,true);
+    btn.textContent='3D motion enabled';
+    status.textContent='Waiting for sensor data…';
+    setTimeout(()=>{if(on&&Date.now()-last>1800)status.textContent='No sensor data • check browser Motion sensors permission'},2200);
+  }catch(e){status.textContent='Motion unavailable: '+e.message}
+}
 btn.onclick=()=>{if(on){on=false;btn.textContent='Enable 3D motion';status.textContent='Motion off';tilt(0,0);return}enable()};
-function pointer(e){const r=card.getBoundingClientRect(),px=clamp((e.clientX-r.left)/r.width,0,1),py=clamp((e.clientY-r.top)/r.height,0,1);tilt((.5-py)*10,(px-.5)*14,px*100,py*100);status.textContent='Touch/drag preview active'}
-card.onpointerdown=e=>{if(on)return;drag=true;card.setPointerCapture?.(e.pointerId);pointer(e)};card.onpointermove=e=>{if(drag&&!on)pointer(e)};card.onpointerup=card.onpointercancel=()=>{if(on)return;drag=false;tilt(0,0);status.textContent='Touch/drag preview ready'};status.textContent='Secure context: '+(window.isSecureContext?'yes':'no')+' • tap Enable';
-</script></body></html>
+function pointer(e){
+  const r=card.getBoundingClientRect(),px=clamp((e.clientX-r.left)/r.width,0,1),py=clamp((e.clientY-r.top)/r.height,0,1);
+  tilt((.5-py)*10,(px-.5)*14,px*100,py*100);status.textContent='Touch/drag preview active';
+}
+card.onpointerdown=e=>{if(on)return;drag=true;card.setPointerCapture?.(e.pointerId);pointer(e)};
+card.onpointermove=e=>{if(drag&&!on)pointer(e)};
+card.onpointerup=card.onpointercancel=()=>{if(on)return;drag=false;tilt(0,0);status.textContent='Touch/drag preview ready'};
+status.textContent='Secure context: '+(window.isSecureContext?'yes':'no')+' • tap Enable';
+</script>
+</body></html>
